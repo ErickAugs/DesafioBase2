@@ -10,6 +10,10 @@ import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Properties;
+
 public class LoginStepDefinitions {
     @Steps
     LoginSteps loginSteps;
@@ -17,9 +21,25 @@ public class LoginStepDefinitions {
     @Steps
     MainSteps mainSteps;
 
-    @Given("informo o usuario '(.*)'")
+    @Given("^Esteja logado no Mantis$")
+    public void estejaLogadoNoMantis() {
+        Properties properties;
+        properties = new Properties();
+
+        try {
+            InputStream inputStream = new FileInputStream("serenity.properties");
+            properties.load(inputStream);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        loginSteps.preenhcerUsuario(properties.getProperty("login.mantis"));
+        loginSteps.preencherSenha(properties.getProperty("senha.mantis"));
+
+        loginSteps.clicarEmLogin();
+    }
+
+    @And("informo o usuario '(.*)'")
     public void preencherUsuario(String usuario){
-        Serenity.setSessionVariable("usuario").to(usuario);
         loginSteps.preenhcerUsuario(usuario);
     }
 
@@ -38,4 +58,5 @@ public class LoginStepDefinitions {
         String usuario = Serenity.sessionVariableCalled("usuario");
         Assert.assertEquals(usuario, mainSteps.retornaUsernameDasInformacoesDeLogin());
     }
+
 }

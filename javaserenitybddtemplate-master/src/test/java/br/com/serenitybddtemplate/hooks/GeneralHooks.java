@@ -1,6 +1,7 @@
 package br.com.serenitybddtemplate.hooks;
 
 import br.com.serenitybddtemplate.steps.LoginSteps;
+import br.com.serenitybddtemplate.utils.GlobalParameters;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import net.thucydides.core.annotations.Steps;
@@ -11,7 +12,8 @@ public class GeneralHooks {
 
     @Before
     public void beforeScenario(){
-        //código a ser executado antes de cada cenário
+        //código a ser executado antes de cada cenários
+        System.setProperty("serenity.outputDirectory", GlobalParameters.pathReport);
         loginSteps.abrirMantis();
     }
 

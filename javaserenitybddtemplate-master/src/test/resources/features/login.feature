@@ -1,8 +1,12 @@
 Feature: Login
 
+  Background:
+    Given Esteja logado no Mantis
+
+  @RealizarLogin
   Scenario: Efetuar login com sucesso
 
-    Given informo o usuario 'erick123'
-    And informo a senha '132465'
+    And informo o usuario 'administrador'
+    And informo a senha '123456'
     When acessar o sistema
     Then o usuário deve ser autenticado com sucesso

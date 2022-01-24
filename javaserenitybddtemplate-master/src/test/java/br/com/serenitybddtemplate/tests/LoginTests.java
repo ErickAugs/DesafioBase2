@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = "src/test/resources/features/login.feature",
-        glue = {"classpath:stepdefinitions", "classpath:hooks" })
+        glue = {"classpath:br.com.serenitybddtemplate.stepdefinitions",
+                "classpath:br.com.serenitybddtemplate.hooks" })
 public class LoginTests {
 }

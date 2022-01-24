@@ -12,7 +12,7 @@ public class GeneralHooks {
 
     @Before
     public void beforeScenario(){
-        //código a ser executado antes de cada cenários
+        //código a ser executado antes de cada cenário
         System.setProperty("serenity.outputDirectory", GlobalParameters.pathReport);
         loginSteps.abrirMantis();
     }

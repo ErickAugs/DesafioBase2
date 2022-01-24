@@ -21,6 +21,7 @@ public class LoginStepDefinitions {
     @Steps
     MainSteps mainSteps;
 
+
     @Given("^Esteja logado no Mantis$")
     public void estejaLogadoNoMantis() {
         Properties properties;
@@ -55,8 +56,7 @@ public class LoginStepDefinitions {
 
     @Then("o usuário deve ser autenticado com sucesso")
     public void verificarSeUsuarioEstaAutenticado(){
-        String usuario = Serenity.sessionVariableCalled("usuario");
+        String usuario = Serenity.sessionVariableCalled("templateautomacao");
         Assert.assertEquals(usuario, mainSteps.retornaUsernameDasInformacoesDeLogin());
     }
-
 }

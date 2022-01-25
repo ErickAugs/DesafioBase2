@@ -3,6 +3,7 @@ package br.com.serenitybddtemplate.steps;
 import br.com.serenitybddtemplate.pages.LoginPage;
 import net.thucydides.core.annotations.Step;
 
+
 public class LoginSteps {
 
     LoginPage loginPage;
@@ -15,6 +16,15 @@ public class LoginSteps {
     @Step("Preencher usuário com '{0}'")
     public void preenhcerUsuario(String usuario){
         loginPage.preenhcerUsuario(usuario);
+    }
+    @Step("Apertar botão enter")
+    public void buttonEnter(){
+
+        loginPage.clicarEnter();
+    }
+    @Step("Apertat botão enter do password")
+    public void buttonEnterPassword(){
+        loginPage.clicarEnterPass();
     }
 
     @Step("Preencher senha com '[0}'")

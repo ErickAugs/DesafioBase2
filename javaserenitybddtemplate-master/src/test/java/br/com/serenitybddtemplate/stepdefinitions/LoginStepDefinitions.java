@@ -34,9 +34,10 @@ public class LoginStepDefinitions {
             e.printStackTrace();
         }
         loginSteps.preenhcerUsuario(properties.getProperty("login.mantis"));
+        loginSteps.buttonEnter();
         loginSteps.preencherSenha(properties.getProperty("senha.mantis"));
+        loginSteps.buttonEnterPassword();
 
-        loginSteps.clicarEmLogin();
     }
 
     @And("informo o usuario '(.*)'")

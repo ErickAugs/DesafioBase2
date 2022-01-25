@@ -57,7 +57,7 @@ public class LoginStepDefinitions {
 
     @Then("o usuário deve ser autenticado com sucesso")
     public void verificarSeUsuarioEstaAutenticado(){
-        String usuario = Serenity.sessionVariableCalled("templateautomacao");
+        String usuario = "administrator";
         Assert.assertEquals(usuario, mainSteps.retornaUsernameDasInformacoesDeLogin());
     }
 }

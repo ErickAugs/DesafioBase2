@@ -11,7 +11,7 @@ public class MainPage extends PageBase {
         super(driver);
     }
     //Mapping
-    By usernameLoginInfoTextArea = By.xpath("//td[@class='login-info-left']/span[@class='italic']");
+    By usernameLoginInfoTextArea = By.className("user-info");
     By reportIssueLink = By.xpath("//a[@href='/bug_report_page.php']");
 
     //Actions
